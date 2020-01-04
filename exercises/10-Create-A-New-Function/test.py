@@ -18,7 +18,6 @@ def test_for_function(capsys):
     # print(int(indices))
     my_func = [s for s in content if "def generate" in s]
     my_func_index = content.index(my_func[0])
-    print(my_func_index)
     # print([s for s in content if "print" in s])
     assert re.match(regex, content[my_func_index])
 
@@ -31,19 +30,18 @@ def test_print():
     my_printVar = content.index(my_print[0])
     regex = r"print\(random\.rand\w+\(\d+\D*\d+\)\)"
     assert re.match(regex, content[my_printVar])
-@pytest.mark.it('3. You should call your function in the correct way ')
-def test_for_file_output(capsys):
-    regex = r"generate_random\(\)"
-    f = open(os.path.dirname(os.path.abspath(__file__))+'/app.py')
-    content = f.readlines()
-    content = [x.strip() for x in content]
-    # indices = [i for i, s in enumerate(content) if 'print' in s]
-    # print(int(indices))
-    my_func = [s for s in content if "generate_random()" in s]
-    my_func_index = content.index(my_func[0])
-    print(my_func_index)
-    # print([s for s in content if "print" in s])
-    assert re.match(regex, content[(len(content)-1)])
+# @pytest.mark.it('3. You should call your function in the correct way ')
+# def test_for_file_output(capsys):
+#     regex = r"generate_random\(\)"
+#     f = open(os.path.dirname(os.path.abspath(__file__))+'/app.py')
+#     content = f.readlines()
+#     content = [x.strip() for x in content]
+#     # indices = [i for i, s in enumerate(content) if 'print' in s]
+#     # print(int(indices))
+#     my_func = [s for s in content if "generate_random()" in s]
+#     my_func_index = content.index(my_func[0])
+#     # print([s for s in content if "print" in s])
+#     assert re.match(regex, content[(len(content)-1)])
 
 # @pytest.mark.it('Your code needs to print hello on the console')
 # def test_generate_random(capsys):
